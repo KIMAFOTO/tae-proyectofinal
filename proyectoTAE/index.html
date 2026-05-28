@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TAE Fotografía Digital | Vanguardia</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* --- ESTILOS GENERALES --- */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background-color:#BBE9FC;
+            color:#ffffff;
+            font-family:'Montserrat', sans-serif;
+            display:flex;
+            flex-direction:column;
+            min-height:100vh;
+        }
+
+        /* --- PREVIEW GALERÍA --- */
+
+        .preview-gallery{
+
+            width:90%;
+
+            margin:50px auto;
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,minmax(250px,1fr));
+
+            gap:20px;
+        }
+
+        .preview-gallery img{
+
+            width:100%;
+
+            height:250px;
+
+            object-fit:cover;
+
+            border-radius:15px;
+
+            transition:0.4s;
+        }
+
+        /* VIDEO */
+
+        .preview-gallery video{
+
+            width:100%;
+
+            height:250px;
+
+            object-fit:cover;
+
+            border-radius:15px;
+
+            transition:0.4s;
+        }
+
+        .preview-gallery img:hover,
+        .preview-gallery video:hover{
+
+            transform:scale(1.03);
+
+            box-shadow:0 0 20px #deff9a;
+        }
+
+        /* --- FOOTER VANGUARDISTA --- */
+
+        .vanguard-footer{
+            width:100%;
+            background-color:#9AE4E6;
+            padding:60px 0 30px 0;
+            border-top:1px solid #1a1a1a;
+        }
+
+        .footer-container{
+            max-width:1200px;
+            margin:0 auto;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            text-align:center;
+        }
+
+        /* NAV */
+
+        .footer-nav{
+            margin-bottom:50px;
+        }
+
+        .footer-nav ul{
+            list-style:none;
+            display:flex;
+            gap:40px;
+        }
+
+        .footer-nav a{
+            color:#666;
+            text-decoration:none;
+            font-size:0.8rem;
+            letter-spacing:4px;
+            text-transform:uppercase;
+            transition:all 0.4s ease;
+            position:relative;
+        }
+
+        .footer-nav a:hover{
+            color:#deff9a;
+        }
+
+        .footer-nav a::after{
+            content:'';
+            position:absolute;
+            width:0;
+            height:1px;
+            bottom:-5px;
+            left:0;
+            background-color:#E7F7FE;
+            transition:width 0.4s ease;
+        }
+
+        .footer-nav a:hover::after{
+            width:100%;
+        }
+
+        /* BANNER */
+
+        .photo-banner{
+            width:100%;
+            height:250px;
+            position:relative;
+            overflow:hidden;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#8FDBFA;
+            margin-bottom:50px;
+        }
+
+        .lens-flare{
+            position:absolute;
+            width:150px;
+            height:150px;
+
+            background:
+            radial-gradient(circle,
+            rgba(222,255,154,0.3) 0%,
+            transparent 70%);
+
+            border-radius:50%;
+
+            filter:blur(20px);
+
+            animation:
+            flareMove 8s infinite alternate ease-in-out;
+        }
+
+        .banner-text{
+            z-index:2;
+            font-size:2.5rem;
+            font-weight:300;
+            letter-spacing:15px;
+            text-transform:uppercase;
+            opacity:0.6;
+
+            animation:
+            pulseText 4s infinite ease-in-out;
+        }
+
+        .focus-corners{
+            position:absolute;
+            width:300px;
+            height:180px;
+            border:1px solid rgba(222,255,154,0.2);
+            pointer-events:none;
+        }
+
+        /* BRAND */
+
+        .footer-brand h2{
+            font-size:1.8rem;
+            font-weight:700;
+            letter-spacing:8px;
+            margin-bottom:10px;
+            color:#fff;
+        }
+
+        .footer-brand span{
+            font-family:'Playfair Display', serif;
+            font-style:italic;
+            font-weight:400;
+            color:#deff9a;
+        }
+
+        .copyright{
+            margin-top:40px;
+            font-size:0.65rem;
+            color:#333;
+            letter-spacing:2px;
+            text-transform:uppercase;
+        }
+
+        /* ANIMACIONES */
+
+        @keyframes flareMove{
+
+            0%{
+                transform:
+                translate(-100px,-20px)
+                scale(1);
+            }
+
+            100%{
+                transform:
+                translate(100px,20px)
+                scale(1.3);
+            }
+        }
+
+        @keyframes pulseText{
+
+            0%,100%{
+                opacity:0.3;
+                transform:scale(0.98);
+            }
+
+            50%{
+                opacity:0.7;
+                transform:scale(1);
+            }
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width:768px){
+
+            .footer-nav ul{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            .banner-text{
+                font-size:1.2rem;
+                letter-spacing:8px;
+            }
+
+            .photo-banner{
+                height:180px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- PREVIEW DE FOTOS -->
+
+    <div class="preview-gallery">
+
+        <img src="img/tae3/foto1.jpg" alt="TAE3">
+
+        <video autoplay muted loop>
+
+            <source src="videos/tae4/video1tae4.mp4" type="video/mp4">
+
+        </video>
+
+        <img src="img/tae5/foto1tae5.png" alt="TAE5">
+
+        <img src="img/tae6/foto1tae6.png" alt="TAE6">
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer class="vanguard-footer">
+
+        <div class="footer-container">
+
+            <nav class="footer-nav">
+
+                <ul>
+
+                    <li>
+                        <a href="tae3.html" target="_blank">
+                            TAE3
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tae4.html" target="_blank">
+                            TAE4
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tae5.html" target="_blank">
+                            TAE5
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tae6.html" target="_blank">
+                            TAE6
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <section class="photo-banner">
+
+                <div class="lens-flare"></div>
+
+                <div class="focus-corners"></div>
+
+                <h3 class="banner-text">
+                    Capturando Creatividad
+                </h3>
+
+            </section>
+
+            <div class="footer-brand">
+
+                <h2>
+                    TAE
+                    <span>Fotografía Digital</span>
+                </h2>
+
+            </div>
+
+            <p class="copyright">
+                &copy; 2026 Visual Arts Studio
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
